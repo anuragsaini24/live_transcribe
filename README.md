@@ -5,6 +5,8 @@ A minimal Python-based live speech-to-text script that captures microphone audio
 ## Project structure
 
 - `speech_to_text.py` — main script that runs live transcription.
+- `test_speech_to_text.py` — unit tests for the transcription loop.
+- `requirements.txt` — Python package dependencies.
 
 ## Requirements
 
@@ -22,16 +24,22 @@ On Windows (recommended):
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 pip install --upgrade pip
-pip install SpeechRecognition pyaudio
+pip install -r requirements.txt
 # If pyaudio fails on Windows, try: pip install pipwin; pipwin install pyaudio
 ```
 
-Or using `requirements.txt` if available:
+On macOS or Linux:
 
 ```bash
 python -m venv .venv
 source .venv/bin/activate   # macOS / Linux
 pip install -r requirements.txt
+```
+
+Run the unit tests with:
+
+```bash
+python -m unittest
 ```
 
 ## Usage
