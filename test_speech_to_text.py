@@ -9,11 +9,11 @@ import speech_to_text
 class ContinuousTranscriptionTests(unittest.TestCase):
     def run_transcription(self, *, recognition_responses=None, listen_side_effect=None):
         output = io.StringIO()
-        with (
-            patch.object(speech_to_text.sr, "Recognizer") as recognizer_class,
-            patch.object(speech_to_text.sr, "Microphone") as microphone_class,
-            contextlib.redirect_stdout(output),
-        ):
+        with patch.object(
+            speech_to_text.sr, "Recognizer"
+        ) as recognizer_class, patch.object(
+            speech_to_text.sr, "Microphone"
+        ) as microphone_class, contextlib.redirect_stdout(output):
             recognizer = recognizer_class.return_value
             recognizer.listen.side_effect = listen_side_effect
             recognizer.recognize_google.side_effect = recognition_responses
