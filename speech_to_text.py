@@ -5,7 +5,7 @@ def continuous_transcription():
     # Adjust this if the script stops too early or waits too long
     recognizer.pause_threshold = 0.8 
 
-    with sr.Microphone() as source:
+    with Microphone() as source:
         print(">>> Calibrating for background noise...")
         recognizer.adjust_for_ambient_noise(source, duration=1)
         print(">>> Continuous listening enabled. (Say 'Stop' to exit)")
